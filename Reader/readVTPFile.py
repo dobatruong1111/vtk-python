@@ -25,7 +25,7 @@ def get_program_parameters():
 def main():
     colors = vtkNamedColors()
 
-    filename = '.\vtp_image\diskout-stream-ascii.vtp' # get_program_parameters()
+    filename = 'diskout-stream-ascii.vtp' # get_program_parameters()
 
     reader = vtkXMLPolyDataReader() # reading a .vtp file
     reader.SetFileName(filename)
