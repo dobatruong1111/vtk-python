@@ -24,7 +24,7 @@ from vtkmodules.vtkRenderingCore import (
 def main():
     colors = vtkNamedColors()
 
-    filename = '.\dicom_image\SCD2001_006\SCD2001_MR_101.dcm'
+    filename = 'SCD2001_MR_101.dcm'
 
     # Reader
     reader = vtk.vtkDICOMImageReader()
