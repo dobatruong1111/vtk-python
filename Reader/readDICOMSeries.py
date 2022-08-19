@@ -1,7 +1,7 @@
 import vtk
 
 def main():
-    folder = ".\dicom_image\digest_article"
+    folder = "digest_article"
     
     imageData = vtk.vtkImageData() # muc 
     reader = vtk.vtkDICOMImageReader()
