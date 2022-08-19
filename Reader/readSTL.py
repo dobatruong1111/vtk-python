@@ -31,7 +31,7 @@ def get_program_parameters():
 def main():
     colors = vtkNamedColors()
 
-    filename = '.\stl_image\solid.stl' # get_program_parameters()
+    filename = 'solid.stl' # get_program_parameters()
 
     reader = vtkSTLReader()
     reader.SetFileName(filename)
