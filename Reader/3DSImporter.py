@@ -12,7 +12,7 @@ from vtkmodules.vtkRenderingCore import (
 def main():
     colors = vtkNamedColors()
 
-    filename = 'Cottage_FREE.3DS'
+    filename = '../data/digest_article/Cottage_FREE.3DS'
 
     importer = vtk3DSImporter()
     importer.SetFileName(filename)

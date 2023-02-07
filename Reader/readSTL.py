@@ -1,63 +1,35 @@
-# noinspection PyUnresolvedReferences
-import vtkmodules.vtkInteractionStyle
-
-# noinspection PyUnresolvedReferences
-import vtkmodules.vtkRenderingOpenGL2
-
-from vtkmodules.vtkCommonColor import vtkNamedColors
-
-from vtkmodules.vtkIOGeometry import vtkSTLReader
-
-from vtkmodules.vtkRenderingCore import (
-    vtkActor,
-    vtkPolyDataMapper,
-    vtkRenderWindow,
-    vtkRenderWindowInteractor,
-    vtkRenderer,
-    vtkProperty
-)
-
-
-def get_program_parameters():
-    import argparse
-    description = 'Read a .stl file.'
-    epilogue = ''''''
-    parser = argparse.ArgumentParser(description=description, epilog=epilogue, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('filename', help='.stl')
-    args = parser.parse_args()
-    return args.filename
-
+import vtk
 
 def main():
-    colors = vtkNamedColors()
+    colors = vtk.vtkNamedColors()
 
-    filename = 'solid.stl' # get_program_parameters()
+    filename = '../data/solid.stl'
 
-    reader = vtkSTLReader()
+    reader = vtk.vtkSTLReader()
     reader.SetFileName(filename)
     print(reader)
 
-    mapper = vtkPolyDataMapper()
+    mapper = vtk.vtkPolyDataMapper()
     mapper.SetInputConnection(reader.GetOutputPort())
 
-    property = vtkProperty()
+    property = vtk.vtkProperty()
     property.SetColor(colors.GetColor3d('white'))
     property.SetDiffuse(0.8)
     property.SetOpacity(0.5)
 
-    actor = vtkActor()
+    actor = vtk.vtkActor()
     actor.SetMapper(mapper)
     actor.SetProperty(property)
 
     # Create a rendering window and renderer
-    ren = vtkRenderer()
+    ren = vtk.vtkRenderer()
 
-    renWin = vtkRenderWindow()
+    renWin = vtk.vtkRenderWindow()
     renWin.AddRenderer(ren)
     renWin.SetWindowName('ReadSTL')
 
     # Create a renderwindowinteractor
-    iren = vtkRenderWindowInteractor()
+    iren = vtk.vtkRenderWindowInteractor()
     iren.SetRenderWindow(renWin)
 
     # Assign actor to the renderer

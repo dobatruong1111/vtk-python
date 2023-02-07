@@ -1,9 +1,9 @@
 import vtk
 
 def main():
-    folder = "digest_article"
+    folder = "../data/digest_article"
     
-    imageData = vtk.vtkImageData() # muc 
+    imageData = vtk.vtkImageData()
     reader = vtk.vtkDICOMImageReader()
     renderWindow = vtk.vtkRenderWindow()
     renderer = vtk.vtkRenderer()
@@ -21,10 +21,10 @@ def main():
 
     imageData.ShallowCopy(reader.GetOutput())
 
-    renderer.SetBackground(0.1,0.2,0.3)
+    renderer.SetBackground(0.1, 0.2, 0.3)
 
     renderWindow.AddRenderer(renderer)
-    renderWindow.SetSize(500,500)
+    renderWindow.SetSize(300, 300)
 
     renWinIn.SetInteractorStyle(interactorStyle)
     renWinIn.SetRenderWindow(renderWindow)
@@ -41,8 +41,8 @@ def main():
     volumeProperty.SetSpecular(0.2)
     volumeProperty.SetSpecularPower(10.0)
 
-    gradientOpacity.AddPoint(0.0,0.0)
-    gradientOpacity.AddPoint(2000.0,1.0)
+    gradientOpacity.AddPoint(0.0, 0.0)
+    gradientOpacity.AddPoint(2000.0, 1.0)
     volumeProperty.SetGradientOpacity(gradientOpacity)
 
     scalarOpacity.AddPoint(-800.0, 0.0)
